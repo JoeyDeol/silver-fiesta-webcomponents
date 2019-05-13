@@ -24,8 +24,16 @@ class ListItem extends HTMLElement {
 
   connectedCallback() {
     // The connectedCallback is called when the element is inserted to the DOM.
+    let attributesArray = [...this.attributes];
+    let textAttribute = attributesArray.filter((i) => i.name === 'text')[0];
 
-    this.$listItem.innerHTML = 'Munch Squad!';
+    if (!this.hasAttribute('text')) {
+      this.setAttribute('text', 'Connected CallBack Text');
+      attributesArray = [...this.attributes];
+      textAttribute = attributesArray.filter((i) => i.name === 'text')[0];
+    }
+
+    this.$listItem.innerHTML = textAttribute.nodeValue;
     
     console.log('connectedCallBack is firing #ListItem');
   }

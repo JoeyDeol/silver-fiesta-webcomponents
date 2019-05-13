@@ -1,17 +1,12 @@
-const listItemTemplate = document.createElement('template');
-listItemTemplate.innerHTML = `
-  <ul>
-    <li>THIS</li>
-    <li>IS</li>
-    <li>A</li>
-    <li>TEST</li>
-  </ul>
+const template = document.createElement('template');
+template.innerHTML = `
+  <li></li>
 `
 
 class ListItem extends HTMLElement {
   // Getter associated with attributesChangedCallback()
   static get observedAttributes() {
-    return ['class'];
+    return ['text'];
   }
 
   constructor() {
@@ -19,16 +14,19 @@ class ListItem extends HTMLElement {
 
     // Adding Element to the Shadow DOM
     this._shadowRoot = this.attachShadow({ 'mode': 'open' });
-    this._shadowRoot.appendChild(listItemTemplate.content.cloneNode(true));
-    this.$listItem = this._shadowRoot.querySelector('ul');
+    this._shadowRoot.appendChild(template.content.cloneNode(true));
+    this.$listItem = this._shadowRoot.querySelector('li');
 
     // Adding Element to the Light DOM
-    // this.appendChild(listItemTemplate.content.cloneNode(true));
+    // this.appendChild(template.content.cloneNode(true));
     console.log('ListItem has been constructed!');
   }
 
   connectedCallback() {
     // The connectedCallback is called when the element is inserted to the DOM.
+
+    this.$listItem.innerHTML = 'Munch Squad!';
+    
     console.log('connectedCallBack is firing #ListItem');
   }
 
@@ -37,7 +35,7 @@ class ListItem extends HTMLElement {
     console.log('disconnectedCallBack is firing #ListItem');
   }
 
-  attributeChangedCallback() {
+  attributeChangedCallback(name, oldValue, newValue) {
     // The attributeChangedCallback is called any time your element's observed attributes change. Only attributes listed in the observedAttributes getter are affected in the attributeChangedCallback.
     console.log('attributeChangedCallBack is firing #ListItem');
   }

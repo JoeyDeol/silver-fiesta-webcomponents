@@ -15,12 +15,7 @@ snackListTemplate.innerHTML = `
   </style>
 
   <h2>THIS IS A SNACK LIST</h2>
-  <ul>
-    <li><snack-element snack-name="Apple"></snack-element></li>
-    <li><snack-element snack-name="Orange"></snack-element></li>
-    <li><snack-element snack-name="Pear"></snack-element></li>
-    <li><snack-element snack-name="Banana"></snack-element></li>
-  </ul>
+  <ul></ul>
 `
 
 
@@ -39,13 +34,21 @@ class SnackList extends HTMLElement {
   }
 
   connectedCallback() {
-    let elementAttributes = [...this.attributes];
-    let snacksValue = elementAttributes.filter((i) => i.name === 'snacks')[0].value;
+    let snacksValue = this.getAttribute('snacks');
+    const snacks = snacksValue.split(', ');
 
-    const regex = /[, ]+/g;
-    const snacks = snacksValue.split(' ').map((i) => i.replace(regex, ''));
-
-    // TODO: Figure out how to iterate over snacks array and create li elements out of each.
+    snacks.map((i) => {
+      const item = document.createElement('snack-element');
+      item.setAttribute('snack-name', i);
+      const listItem = document.createElement('li');
+      listItem.appendChild(item);
+      
+      // Alt method, create listItem element and the modify its inner html to represent your next custom element.
+      // listItem.innerHTML = `
+      //   <snack-element snack-name="${i}"></snack-element>
+      // `
+      this.$snackList.append(listItem);
+    });
   }
 
 };

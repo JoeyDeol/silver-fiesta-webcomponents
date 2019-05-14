@@ -1,5 +1,19 @@
 const snackListTemplate = document.createElement('template');
 snackListTemplate.innerHTML = `
+  <style>
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    li {
+      padding: 0;
+      margin: 0;
+      list-style: none; 
+    }
+  </style>
+
   <h2>THIS IS A SNACK LIST</h2>
   <ul>
     <li><snack-element snack-name="Apple"></snack-element></li>
@@ -12,6 +26,10 @@ snackListTemplate.innerHTML = `
 
 
 class SnackList extends HTMLElement {
+  static get observedAttributes() {
+    return ['snacks'];
+  }
+
   constructor() {
     super();
 
@@ -21,7 +39,13 @@ class SnackList extends HTMLElement {
   }
 
   connectedCallback() {
+    let elementAttributes = [...this.attributes];
+    let snacksValue = elementAttributes.filter((i) => i.name === 'snacks')[0].value;
 
+    const regex = /[, ]+/g;
+    const snacks = snacksValue.split(' ').map((i) => i.replace(regex, ''));
+
+    // TODO: Figure out how to iterate over snacks array and create li elements out of each.
   }
 
 };

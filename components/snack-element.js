@@ -1,5 +1,5 @@
-const template = document.createElement('template');
-template.innerHTML = `
+const snackElementTemplate = document.createElement('template');
+snackElementTemplate.innerHTML = `
   <style>
     button {
       /* Positioning */
@@ -87,7 +87,7 @@ class SnackElement extends HTMLElement {
     super();
 
     this.attachShadow({ 'mode': 'open'  });
-    this.shadowRoot.appendChild(template.content.cloneNode(true));
+    this.shadowRoot.appendChild(snackElementTemplate.content.cloneNode(true));
     this.$snackElement = this.shadowRoot.querySelector('button');
   }
 
@@ -100,7 +100,7 @@ class SnackElement extends HTMLElement {
     if(!this.hasAttribute('snack-name')) {
       this.setAttribute('snack-name', 'Snack Element');
       attributesArray = [...this.attributes];
-      let textAttribute = attributesArray.filter((i) => i.name === 'snack-name')[0];
+      textAttribute = attributesArray.filter((i) => i.name === 'snack-name')[0];
     }
 
     this.$snackElement.innerHTML = textAttribute.nodeValue;

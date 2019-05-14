@@ -93,17 +93,17 @@ class SnackElement extends HTMLElement {
 
   connectedCallback() {
     // Grab all the properties written on the component
-    let attributesArray = [...this.attributes];
+    let elementAttributes = [...this.attributes];
     // Filter for the specific attributes you're looking for. In this case we're looking for snack names.
-    let textAttribute = attributesArray.filter((i) => i.name === 'snack-name')[0];
+    let textAttribute = elementAttributes.filter((i) => i.name === 'snack-name')[0];
 
     if(!this.hasAttribute('snack-name')) {
       this.setAttribute('snack-name', 'Snack Element');
-      attributesArray = [...this.attributes];
-      textAttribute = attributesArray.filter((i) => i.name === 'snack-name')[0];
+      elementAttributes = [...this.attributes];
+      textAttribute = elementAttributes.filter((i) => i.name === 'snack-name')[0];
     }
 
-    this.$snackElement.innerHTML = textAttribute.nodeValue;
+    this.$snackElement.innerHTML = textAttribute.value;
   }
 };
 

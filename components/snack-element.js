@@ -75,7 +75,7 @@ snackElementTemplate.innerHTML = `
     }
   </style>
 
-  <button type="button" class="button-effect"  ></button>
+  <button type="button" class="button-effect"></button>
 `;
 
 class SnackElement extends HTMLElement {
@@ -86,7 +86,7 @@ class SnackElement extends HTMLElement {
   constructor() {
     super();
 
-    this.attachShadow({ 'mode': 'open'  });
+    this.attachShadow({ 'mode': 'open' });
     this.shadowRoot.appendChild(snackElementTemplate.content.cloneNode(true));
     this.$snackElement = this.shadowRoot.querySelector('button');
   }
@@ -104,6 +104,15 @@ class SnackElement extends HTMLElement {
     }
 
     this.$snackElement.innerHTML = textAttribute.value;
+
+
+    this.$snackElement.addEventListener('click', this.clickHander);
+  }
+
+  clickHander(e) {
+    console.log('SNACK HAS BEEN CLICKED!');
+    const snackClickedEvent = new Event('snackClicked', { 'bubbles': true, 'composed': true });
+    this.dispatchEvent(snackClickedEvent);
   }
 };
 

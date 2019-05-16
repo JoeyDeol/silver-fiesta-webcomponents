@@ -6,7 +6,7 @@ munchKingTemplate.innerHTML = `
       background-color: pink;
       width: 100px;
       height: 100px;
-      transition: 5s all;
+      transition: all 600ms cubic-bezier(0.77, 0, 0.175, 1);
     }
 
     .chomping {

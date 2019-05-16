@@ -3,7 +3,7 @@ munchKingTemplate.innerHTML = `
   <style>
     div {
       border-radius: 90px;
-      background-color: red;
+      background-color: pink;
       width: 100px;
       height: 100px;
       transition: 5s all;
@@ -11,6 +11,22 @@ munchKingTemplate.innerHTML = `
 
     .chomping {
       background-color: blue;
+    }
+
+    #apples {
+      background-color: crimson;
+    }
+
+    #pears {
+      background-color: green;
+    }
+
+    #oranges {
+      background-color: orange;
+    }
+
+    #bananas {
+      background-color: yellow;
     }
   </style>
   <div class="munch-king"></div>
@@ -32,7 +48,24 @@ class MunchKing extends HTMLElement {
   handleEvent(e) {
     const snackToBeEaten = e.detail.snackElement.innerHTML;
     const munchKingShadowRoot = this.querySelector('munch-king').shadowRoot;
-    munchKingShadowRoot.querySelector('.munch-king').classList.add('chomping');    
+
+    switch (snackToBeEaten) {
+      case 'Apples': 
+        munchKingShadowRoot.querySelector('.munch-king').setAttribute('id', 'apples');
+        break;
+      case 'Pears':
+        munchKingShadowRoot.querySelector('.munch-king').setAttribute('id', 'pears');
+        break;
+      case 'Oranges':
+        munchKingShadowRoot.querySelector('.munch-king').setAttribute('id', 'oranges');
+        break;
+      case 'Bananas':
+        munchKingShadowRoot.querySelector('.munch-king').setAttribute('id', 'bananas');
+        break;
+      default:
+        window.alert('You do not have that snack!');
+
+    }
   }
 };
 

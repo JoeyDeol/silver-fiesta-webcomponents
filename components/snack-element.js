@@ -110,8 +110,12 @@ class SnackElement extends HTMLElement {
   }
 
   clickHander(e) {
-    console.log('SNACK HAS BEEN CLICKED!');
-    const snackClickedEvent = new Event('snackClicked', { 'bubbles': true, 'composed': true });
+    const snackElement = this;
+    const snackClickedEvent = new CustomEvent('snackClicked', { 
+      'bubbles': true, 
+      'composed': true,
+      'detail': { snackElement },
+    });
     this.dispatchEvent(snackClickedEvent);
   }
 };

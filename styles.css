@@ -5,3 +5,19 @@ body {
   margin: 0 auto;
   text-align: center;
 }
+
+h1, h2, h3, h4, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 60px;
+  font-weight: none;
+}
+
+main {
+  display: flex;
+  justify-content: space-around;
+}

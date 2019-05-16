@@ -1,3 +1,7 @@
+html {
+  font-family: 'Great Vibes', cursive;
+}
+
 body {
   height: 100vh;
   background-repeat: no-repeat;
@@ -12,9 +16,16 @@ h1, h2, h3, h4, ul, li {
 }
 
 h1 {
-  font-family: 'Great Vibes', cursive;
   font-size: 60px;
-  font-weight: none;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+
+header {
+  margin: 50px 0;
 }
 
 main {

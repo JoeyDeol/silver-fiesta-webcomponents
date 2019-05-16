@@ -13,8 +13,7 @@ snackListTemplate.innerHTML = `
       list-style: none; 
     }
   </style>
-
-  <h2>THIS IS A SNACK LIST</h2>
+  
   <ul></ul>
 `
 

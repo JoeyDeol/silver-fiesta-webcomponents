@@ -33,6 +33,7 @@ class SnackList extends HTMLElement {
   }
 
   connectedCallback() {
+    // An easy way to access the attributes present on a HTML Element.
     let snacksValue = this.getAttribute('snacks');
     const snacks = snacksValue.split(', ');
 

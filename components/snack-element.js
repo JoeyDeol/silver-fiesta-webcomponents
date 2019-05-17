@@ -92,11 +92,13 @@ class SnackElement extends HTMLElement {
   }
 
   connectedCallback() {
+    // Another method for getting all the properties from an element.
     // Grab all the properties written on the component
     let elementAttributes = [...this.attributes];
     // Filter for the specific attributes you're looking for. In this case we're looking for snack names.
     let textAttribute = elementAttributes.filter((i) => i.name === 'snack-name')[0];
 
+    // Method for filtering for expected attributes.
     if(!this.hasAttribute('snack-name')) {
       this.setAttribute('snack-name', 'Snack Element');
       elementAttributes = [...this.attributes];

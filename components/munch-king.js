@@ -36,25 +36,29 @@ munchKingTemplate.innerHTML = `
     
     .munch-king-eyes {
       position: absolute;
-      top: 25%;
-      left: 50px;
+      top: 20%;
+      left: 28px;
       display: flex;
       justify-content: space-between;
       width: 65%;
+      padding: 20px;
       background-color: transparent;
-      border: 1px solid white;
+      border: 5px solid white;
     }
 
     .munch-king-eye {
-      width: 50px;
+      width: 70px;
       height: 50px;
       background-color: firebrick;
       border-radius: 90px;
     }
 
     .munch-king-mouth {
-      width: 50px;
-      height: 50px;
+      position: absolute;
+      top: 60%;
+      left: 100px;
+      width: 100px;
+      height: 90px;
       background-color: firebrick;
       border-radius: 90px;
     }

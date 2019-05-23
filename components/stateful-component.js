@@ -28,7 +28,11 @@ class StatefulComponent extends HTMLElement {
   }
 
   connectedCallback() {
-    console.log('connectedCallback is firing!');
+    this._state = { ...this._state, componentIsMounted: true, };
+  }
+
+  disconnectedCallback() {
+    this._state = { ...this._state, componentIsMounted: false, };
   }
 
   attributeChangedCallback(name, oldVal, newVal) {

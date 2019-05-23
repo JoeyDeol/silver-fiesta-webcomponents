@@ -6,11 +6,11 @@ munchKingTemplate.innerHTML = `
     }
 
     #apples {
-      background-color: crimson;
+      background-color: #ea0b29;
     }
 
     #pears {
-      background-color: green;
+      background-color: #D1E231;
     }
 
     #oranges {
@@ -18,7 +18,7 @@ munchKingTemplate.innerHTML = `
     }
 
     #bananas {
-      background-color: yellow;
+      background-color: #FFE135;
     }
 
     .munch-king {
@@ -107,7 +107,6 @@ class MunchKing extends HTMLElement {
         break;
       default:
         window.alert('You do not have that snack!');
-
     }
   }
 };

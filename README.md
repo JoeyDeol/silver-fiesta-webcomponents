@@ -2,7 +2,7 @@
 This repository is a collection of different branches containing experiments conducted with Web Components.
 
 ## What is Munch King
-- This was meant to be a fun POC project I would create a robot king that could be fed different snacks and the robot would animate in response to being fed those snacks.
+- This was meant to be a fun POC project where I would create a robot king that could be fed different snacks and the robot would animate in response to being fed those snacks.
 
 ## Goals to meet with this POC
 - Create a dynamic Web Component that will render content based around information passed to attributes.

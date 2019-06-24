@@ -4,7 +4,7 @@ This repository is a collection of different branches containing experiments con
 ## What is Munch King
 - This was meant to be a fun POC project where I would create a robot king that could be fed different snacks and the robot would animate in response to being fed those snacks.
 
-## Goals to meet with this POC
+## Goals of this POC
 - Create a dynamic Web Component that will render content based around information passed to attributes.
   - Figure out how to access the attributes of any given Web Component.
   - Find a way to parse a comma separated list that is passed to an attribute and use that data in efficient way.
